@@ -9,6 +9,7 @@ t1 = "Keyword"
 t2 = "Usuario"
 t3 = "Eliminar Proceso"
 processes = []
+jajajaj = 0
 
 #Main window
 class TwitterApp(tk.Tk):
