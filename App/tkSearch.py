@@ -1,6 +1,9 @@
 import Tkinter as tk
 from Tkinter import *
 import ttk
+#import search_palabra as sw
+#import search_person as sp
+import cliente as cli
 
 b = "Busqueda por "
 t1 = "Keyword"
@@ -12,6 +15,8 @@ processes = []
 class toSearch(ttk.Frame):
     def __init__(self, parent, searchType, controller):
         ttk.Frame.__init__(self, parent)
+
+        self.controller = controller
         
         self.toSearch = ttk.Label(self, text = searchType)
         self.toSearch.grid(row = 0, column = 0, padx = 30, pady = 10)
@@ -47,10 +52,12 @@ class toSearch(ttk.Frame):
 
     #Modificar aqui thibo, ahora si que si tienes todo lo que necesitas
     def searchCommand(self):
+
         Type = self.Type #Puede ser "User" o "Keyword"
         String = self.Field.get() #String a buscar
         typeTime = self.tlist.get() #Puede ser "Horas" o "Indefinido"
 
+        currTime = -1
         #Modificar estas weas, es para que veas que funciona ahora
         if typeTime == "Indefinido":
             print "El tiempo seleccionado es ", typeTime
@@ -59,8 +66,21 @@ class toSearch(ttk.Frame):
             print "El tiempo seleccionado es ",currTime, typeTime
 
         print "Buscar", Type, String
+
+        #Uso con servidor
+        cli.search(String, currTime, Type)
+
+        #Uso en consola
+        """
+        if Type == "Keyword":
+            sw.search(String, currTime)
+        if Type == "Usuario":
+            sp.search(String, currTime)
         
         self.searchRefresh()
+        #"""
+
+
         return
     
     #------------------Hasta aqui nomas-----------------------------------------#
