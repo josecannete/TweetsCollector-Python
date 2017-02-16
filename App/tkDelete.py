@@ -1,9 +1,8 @@
 import Tkinter as tk
 from Tkinter import *
 import ttk
+import cliente
 from data import *
-
-Data = Data()
 
 b = "Busqueda por "
 t1 = "Keyword"
@@ -11,21 +10,13 @@ t2 = "Usuario"
 t3 = "Eliminar Proceso"
 processes = []
 
-#Import IDs and Search Text ordered in two lists
-ID = Data.ID
-Text = Data.Strings
-N = Data.getLength()
-
-def updateVar():
-    global N, ID, Text
-    N = Data.getLength()
-    ID = Data.ID
-    Text = Data.Strings
-
 #Template Frame to Delete Processes
 class toDelete(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+
+        #Data object
+        self.data = Data()
 
         #Top Frame with raised labels
         self.topFrame = tk.Frame(self)
@@ -52,7 +43,7 @@ class toDelete(tk.Frame):
 
         self.frame.bind("<Configure>", self.onFrameConfigure)
         
-        self.textCheckButton(N)
+        self.textCheckButton(self.data.getLength())
         self.cframe.grid(row = 1, column = 0, rowspan = 12, columnspan = 5)
 
         #End Process Button
@@ -62,17 +53,18 @@ class toDelete(tk.Frame):
         
     #Elements from the lists imported as lists
     def textCheckButton(self, n):
-        self.bList = [tk.IntVar() for i in range(N)]
+        self.bList = [tk.IntVar() for i in range(self.data.getLength())]
         for i in range(n):
             tk.Label(self.frame, text= str(i), width = 3, borderwidth = 0,
-                     relief = "solid",
+                     relief = "solid", anchor = W,
                      background = "#ffffff").grid(row = i, column=0)
 
-            tk.Label(self.frame, text= str(ID[i]),
-                background="#ffffff").grid(row = i, column = 1, padx = 30)
+            tk.Label(self.frame, text= str(self.data.ID[i]),
+                background="#ffffff",
+                anchor = W).grid(row = i, column = 1, padx = 30)
 
             tk.Label(self.frame,
-                     text = Text[i],
+                     text = self.data.Strings[i],
                      background="#ffffff",
                      width = 21,
                      anchor = W).grid(row = i, column=2)
@@ -86,29 +78,20 @@ class toDelete(tk.Frame):
 
     #Aqui deben modificar!!!------------------------------------------------#
     def endCommand(self):
-        for i in range(N):
+        for i in range(self.data.getLength()):
             if self.bList[i].get() == 1:
-                processID = ID[i]
-                print "proceso", processID, "seleccionado, por eliminar"
-                #Aqui usar comandos para eliminar el processID del server
-
-
-
-        #Aqui estaba testeando para ver que se eliminara algo de la lista
-        #Como tu vas a actualizar la listas de Data usando updateData mas
-        #abajo, no lo hagas y elimina esto despues para testear
-        del Data.ID[0]  #<---eliminar cuando tengas implementada updateData()
-        del Data.Strings[0]#<----
+                processID = self.data.ID[i]
+                cliente.delete(processID)
+                print "proceso", processID, "seleccionado, por eliminar\n"
+       
+        self.updateWindow()
         
-        #Hay que actualizar la info de Data despues de eliminar, dejalo ahi
-        Data.updateData()
-
-        #Esto actualiza la interfaz, no lo pesques
-        updateVar()
+    def updateWindow(self):
         for widget in self.frame.winfo_children():
             widget.destroy()
-
-        self.textCheckButton(N)
-        self.cframe.grid(row = 1, column = 0, rowspan = 12, columnspan = 5)
             
+        self.data.updateData()
+        self.textCheckButton(self.data.getLength())
+        self.cframe.grid(row = 1, column = 0, rowspan = 12, columnspan = 5)
+
                 

@@ -50,7 +50,6 @@ class toSearch(ttk.Frame):
         self.var.trace("w", self.on_trace_choice)
         self.refresh()
 
-    #Modificar aqui thibo, ahora si que si tienes todo lo que necesitas
     def searchCommand(self):
 
         Type = self.Type #Puede ser "User" o "Keyword"
@@ -58,7 +57,6 @@ class toSearch(ttk.Frame):
         typeTime = self.tlist.get() #Puede ser "Horas" o "Indefinido"
 
         currTime = -1
-        #Modificar estas weas, es para que veas que funciona ahora
         if typeTime == "Indefinido":
             print "El tiempo seleccionado es ", typeTime
         else:
@@ -69,16 +67,7 @@ class toSearch(ttk.Frame):
 
         #Uso con servidor
         cli.search(String, currTime, Type)
-
-        #Uso en consola
-        """
-        if Type == "Keyword":
-            sw.search(String, currTime)
-        if Type == "Usuario":
-            sp.search(String, currTime)
-        
-        self.searchRefresh()
-        #"""
+        self.controller.deleteList.updateWindow()
 
 
         return
