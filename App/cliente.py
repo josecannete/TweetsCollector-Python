@@ -20,10 +20,10 @@ def search(busqueda, currTime, Type):
         tiempo = currTime
         if tipo == 'Keyword':
             stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
-                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file.txt &')
+                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file2.txt &')
         else:
             stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
-                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file.txt &')
+                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file2.txt &')
     else:
         print('Opcion no valida')
     client.close()
