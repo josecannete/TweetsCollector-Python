@@ -19,16 +19,11 @@ def search(busqueda, currTime, Type):
     if tipo == 'Keyword' or tipo == 'Usuario':
         tiempo = currTime
         if tipo == 'Keyword':
-            stdin, stdout, stderr = client.exec_command('nohup python search_palabra.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
-                                                        '>/dev/null 2>&1 & echo $! &')
+            stdin, stdout, stderr = client.exec_command('echo | nohup python search_palabra.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
+                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file.txt &')
         else:
-            stdin, stdout, stderr = client.exec_command('nohup python search_person.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
-                                                        '>/dev/null 2>&1 & echo $! &')
-        pid = ''
-        for line in stdout:
-            pid = line.strip('\n')
-        linea = 'echo ' + str(pid) + ' ' + str(busqueda) + ' >> file.txt'
-        stdin, stdout, stderr = client.exec_command(linea)
+            stdin, stdout, stderr = client.exec_command('echo | nohup python search_person.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
+                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file.txt &')
     else:
         print('Opcion no valida')
     client.close()
