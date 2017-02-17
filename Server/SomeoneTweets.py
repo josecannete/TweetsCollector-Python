@@ -3,13 +3,13 @@ import json
 import os
 
 #Twitter API credentials
-consumer_key = 'ckCAdVpxuzGhmZXtht6ZJNq9D'
-consumer_secret = 'QI5vXnStxZ8IvVg2nFl6ax9wmmhStAp8YOxWsUZZEX4zxfmIpP'
-access_key = '814169077589639168-FC2RBNkypmRrkmGMAFMMtxc3ir7PpoS'
-access_secret = '1sQ2mrFVBWR2v677IsZvH5GRms2aICkztb831fT51bQiU'
+consumer_key = '9dI0BvlBlBmQjMB7NdeafUpVK'
+consumer_secret = 'QG3HjzpQ52FgC5lDc7lg2nCX4fiMHzbqAZ1HclYuJ10MXlBWN0'
+access_key = '105785165-8OcCHCUPkz7uDEaLNJrM771Itv9UBFVHKP104biU'
+access_secret = '1Ei0vmDVIOQqifjQAri3wLEqD0T0fU0SgmMXAiA6XWnoj'
 
 #Maximo de tweets por busqueda
-limite_tweets = 1000
+limite_tweets = 100000000
 
 def search_by_user(screen_name, ultimo):
 
