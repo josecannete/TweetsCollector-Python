@@ -56,10 +56,16 @@ def showDeleteOptions():
     busquedasArray = []
     for line in stdout:
         texto = line.strip('\n').split()
-        pid = texto[0]
-        busqueda = texto[1]
-        pidArray.append(pid)
-        busquedasArray.append(busqueda)
+        if (len(texto) >= 2):
+            pid = texto[0]
+            busqueda = ''
+            i = 1
+            while (i < len(texto)):
+                busqueda += texto[i]
+                busqueda += ' '
+                i += 1
+            pidArray.append(pid)
+            busquedasArray.append(busqueda)
 
     client.close()
 
