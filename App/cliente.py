@@ -19,10 +19,10 @@ def search(busqueda, currTime, Type):
     if tipo == 'Keyword' or tipo == 'Usuario':
         tiempo = currTime
         if tipo == 'Keyword':
-            stdin, stdout, stderr = client.exec_command('echo | nohup python search_palabra.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
+            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
                                                         '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file.txt &')
         else:
-            stdin, stdout, stderr = client.exec_command('echo | nohup python search_person.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
+            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
                                                         '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file.txt &')
     else:
         print('Opcion no valida')
@@ -50,7 +50,7 @@ def showDeleteOptions():
     directory = os.path.dirname(os.path.abspath(__file__))
     client.connect('104.197.72.131', username='lunapuljak', password='', key_filename=directory + '/llave')
 
-    stdin, stdout, stderr = client.exec_command('cat file.txt')
+    stdin, stdout, stderr = client.exec_command('cat file2.txt')
 
     pidArray = []
     busquedasArray = []
