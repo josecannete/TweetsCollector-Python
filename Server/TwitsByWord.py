@@ -18,7 +18,7 @@ def search_by_word(search_word, last_tweet):
     auth.set_access_token(access_key, access_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-    direccion = 'jsonDirectory/'+ search_word + '.json'
+    direccion = 'keywordTweets/'+ search_word + '.json'
 
     users = tweepy.Cursor(api.search,q = search_word).items()
     count = 0
