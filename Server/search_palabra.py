@@ -19,16 +19,19 @@ def search(busqueda, tiempo):
         if tiempo == 0:
             break
 
-        ultimo = search_by_word(busqueda, ultimo)
         tiempo -= 1
 
         if tiempo >= 0:
             print("Busquedas restantes " + str(tiempo) + ". Pausa")
         else:
             print("Pausa")
+            
+        for j in range(3):
+            
+            ultimo = search_by_word(busqueda, ultimo)
 
-        if(tiempo != 0):
-            time.sleep(sleep_time)
+            if(not (tiempo == 0 and j == 2) ):
+                time.sleep(sleep_time)
 
     print("Fin de busquedas")
     pid = os.getpid()
@@ -38,6 +41,5 @@ if __name__ == '__main__':
 
     busqueda = sys.argv[1]
     tiempo = sys.argv[2]
-    # para evitar problemas de sincronizacion
-    time.sleep(60)
+
     search(busqueda, tiempo)
