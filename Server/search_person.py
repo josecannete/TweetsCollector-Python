@@ -4,7 +4,7 @@ from SomeoneTweets import *
 import os
 from eliminar import *
 
-sleep_time = 60*60
+sleep_time = 20*60
 
 def search(busqueda, tiempo):
 
