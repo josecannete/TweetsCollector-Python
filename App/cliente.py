@@ -4,7 +4,7 @@ import paramiko
 
 
 
-def search(busqueda, currTime, Type):
+def search(busqueda, currTime, Type, nombreArchivo):
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -19,11 +19,11 @@ def search(busqueda, currTime, Type):
     if tipo == 'Keyword' or tipo == 'Usuario':
         tiempo = currTime
         if tipo == 'Keyword':
-            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
-                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file2.txt &')
+            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' 
+                + str(tiempo) + ' ' + nombreArchivo + ' ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file2.txt &')
         else:
-            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' + str(tiempo) + ' ' +
-                                                        '>/dev/null 2>&1 & echo $! ' + str(busqueda) + ' >> file2.txt &')
+            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' '
+             + str(tiempo) + ' ' + nombreArchivo + ' ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file2.txt &')
     else:
         print('Opcion no valida')
     client.close()

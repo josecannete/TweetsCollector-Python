@@ -1,8 +1,9 @@
 import sys
 import os
 import time
+from eliminar import *
 
-def search(query, tiempo):
+def search(query, tiempo, nombreArchivo):
 
   tiempo = int(tiempo)
     
@@ -13,9 +14,8 @@ def search(query, tiempo):
         break
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    print("twarc search '" + query + "' > " + dir_path + "/busquedas/" + 
-        query + fecha + ".json")
-    os.system("twarc search '" + query + "' > " + dir_path + "/busquedas/busqueda" + fecha + ".json")
+    #print("twarc search '" + query + "' > " + dir_path + "/busquedas/" + nombreArchivo + fecha + ".json")
+    os.system("twarc search '" + query + "' > " + dir_path + "/busquedas/" + nombreArchivo + fecha + ".json")
 
     tiempo -= 1
 
@@ -23,15 +23,18 @@ def search(query, tiempo):
       time.sleep(7 * 24 * 60 * 60)
 
 if __name__ == '__main__':
-    
+
     busqueda = ''
     i = 1
-    while (i < len(sys.argv) - 1):
+    while (i < len(sys.argv) - 2):
         busqueda += sys.argv[i]
         i += 1
         if (i < len(sys.argv) - 1):
             busqueda += ' '
-    tiempo = sys.argv[len(sys.argv) - 1]
+    tiempo = sys.argv[len(sys.argv) - 2]
+    nombreArchivo = sys.argv[len(sys.argv) - 1]
     # para evitar problemas de sincronizacion
     #time.sleep(60)
-    search(busqueda, tiempo)
+    search(busqueda, tiempo, nombreArchivo)
+    pid = os.getpid()
+    eliminarRegistro(pid)
