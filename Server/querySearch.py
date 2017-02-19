@@ -24,17 +24,10 @@ def search(query, tiempo, nombreArchivo):
 
 if __name__ == '__main__':
 
-    busqueda = ''
-    i = 1
-    while (i < len(sys.argv) - 2):
-        busqueda += sys.argv[i]
-        i += 1
-        if (i < len(sys.argv) - 1):
-            busqueda += ' '
-    tiempo = sys.argv[len(sys.argv) - 2]
-    nombreArchivo = sys.argv[len(sys.argv) - 1]
-    # para evitar problemas de sincronizacion
-    #time.sleep(60)
+    tiempo = sys.argv[1]
+    nombreArchivo = sys.argv[2]
+    busqueda = sys.argv[3]
+
     search(busqueda, tiempo, nombreArchivo)
     pid = os.getpid()
     eliminarRegistro(pid)

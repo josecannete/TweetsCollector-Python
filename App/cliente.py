@@ -19,11 +19,11 @@ def search(busqueda, currTime, Type, nombreArchivo):
     if tipo == 'Keyword' or tipo == 'Usuario':
         tiempo = currTime
         if tipo == 'Keyword':
-            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' ' 
-                + str(tiempo) + ' ' + nombreArchivo + ' ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file2.txt &')
+            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py "' + str(tiempo) + '" "' 
+                + str(nombreArchivo) + '" "' + str(busqueda) + '" ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file.txt &')
         else:
-            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py ' + str(busqueda) + ' '
-             + str(tiempo) + ' ' + nombreArchivo + ' ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file2.txt &')
+            stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py "' + str(tiempo) + '" "'
+             + str(nombreArchivo) + '" ' + str(busqueda) + ' ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file.txt &')
     else:
         print('Opcion no valida')
     client.close()
@@ -50,7 +50,7 @@ def showDeleteOptions():
     directory = os.path.dirname(os.path.abspath(__file__))
     client.connect('104.197.72.131', username='lunapuljak', password='', key_filename=directory + '/llave')
 
-    stdin, stdout, stderr = client.exec_command('cat file2.txt')
+    stdin, stdout, stderr = client.exec_command('cat file.txt')
 
     pidArray = []
     busquedasArray = []
