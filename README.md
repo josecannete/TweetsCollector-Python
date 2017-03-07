@@ -25,14 +25,14 @@
 ![alt tag](http://i.imgur.com/i0QcXcZ.png)
 
 2 - Se abrirá una ventana como la que se muestra a continuación:
-![alt tag](http://imgur.com/i0QcXcZ)
+![alt tag](http://i.imgur.com/KG5XRhj.png)
 
 3 - Para ejecutar una busqueda debemos completar los campos que se indican. En el campo Busqueda debemos ingresar la consulta deseada, la sintaxis de esta es la misma de twarc y de la busqueda avanzada de Twitter (https://twitter.com/search-advanced?lang=es). Un ejemplo rápido es la siguiente busqueda (https://twitter.com/search?l=&q=hola%20OR%20mundo&src=typd&lang=es):
-![alt tag](http://imgur.com/iizToU7)
+![alt tag](http://i.imgur.com/iizToU7.png)
 
 Donde la consulta que nos interesa es la siguiente, este texto es el que debemos ingresar en el parametro de busqueda:
-![alt tag](http://imgur.com/xxS2pse)
-![alt tag](http://imgur.com/tDAAxdv)
+![alt tag](http://i.imgur.com/xxS2pse.png)
+![alt tag](http://i.imgur.com/tDAAxdv.png)
 
 
 Por otra parte, el tiempo a ejecutar se ingresa en Semanas o de manera indefinida. En el primer caso lo que haremos será buscar cada semana los tweets de los ultimos 7 dias (esto también puede ajustarse para menos días modificando correctamente la consulta). Es decir, si decidimos, por ejemplo, poner 3 semanas como parametro, obtendremos los tweets de la semana anterior y las 2 siguientes al día en que se ejecuta la consulta. En el segundo caso, se ejecutará una busqueda semanal hasta que detengamos el proceso de manera posterior.
@@ -40,12 +40,12 @@ Por otra parte, el tiempo a ejecutar se ingresa en Semanas o de manera indefinid
 Finalmente, debemos ingresar un parametro de nombre de archivo, y es simplemente el nombre del archivo que contendrá los tweets a archivar. El formato del nombre, en el servidor, quedará de la siguiente manera: nombre_de_archivo + dia.fecha.año + extensión JSON. En el caso de la busqueda anterior, nuestra primera busqueda quedaría como tweetsdeholachao10.10.2017.json. Notemos que cada semana se guardará un archivo distinto con la fecha de los tweets de esa semana.
 
 Una consulta quedaría finalmente así:
-![alt tag](http://imgur.com/82iKWhy)
+![alt tag](http://i.imgur.com/82iKWhy.png)
 
 4 - Existe una segunda pestaña, llamada Pestaña de Procesos. La función de esta es el permitirnos detener busquedas que estén corriendo en el servidor. Una vez abierta nos mostrará una lista con los procesos corriendo en el servidor:
-![alt tag](http://imgur.com/MjqFVdw)
+![alt tag](http://i.imgur.com/MjqFVdw.png)
 
 Luego, para detener uno o varios procesos solo tendremos que seleccionarlos y posteriormente dar click en el botón Terminar:
-![alt tag](http://imgur.com/ItiLKpc)
+![alt tag](http://i.imgur.com/ItiLKpc.png)
 
 5 - Una vez que hayamos hecho una busqueda o eliminado un proceso, los campos de información se actualizaran y podremos seguir ejecutando acciones, o bien cerrar el programa.
