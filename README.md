@@ -23,7 +23,7 @@
 1 - Desde el terminal entrar a la carpeta App y ejecutar el archivo interface.py como se muestra a continuación:
 
 ![alt tag](http://imgur.com/i0QcXcZ)
-
+[Imgur](http://i.imgur.com/i0QcXcZ.png)
 2 - Se abrirá una ventana como la que se muestra a continuación:
 ![alt tag](http://imgur.com/i0QcXcZ)
 
