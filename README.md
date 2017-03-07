@@ -10,7 +10,7 @@
 
 # Instrucciones para el setup del cliente
 
-1 - Instalar paramiko (http://www.paramiko.org/installing.html) y tkinter (en caso de no estar instalado, http://www.paramiko.org/installing.html)
+1 - Instalar paramiko (http://www.paramiko.org/installing.html) y tkinter (en caso de no estar instalado, https://docs.python.org/2/library/tkinter.html)
 
 2 - Descargar la carpeta App.
 
