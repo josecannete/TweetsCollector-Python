@@ -1,4 +1,3 @@
-#Llamar los modulos del jose
 from cliente import *
 
 class Data:

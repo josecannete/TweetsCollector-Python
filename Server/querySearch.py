@@ -3,6 +3,11 @@ import os
 import time
 from eliminar import *
 
+'''
+search: ejecuta mediante os.system un "twarc search" parametrizado y lo repite n veces en un ciclo while
+param: (string) pid
+return: NULL
+'''
 def search(query, tiempo, nombreArchivo):
 
   tiempo = int(tiempo)

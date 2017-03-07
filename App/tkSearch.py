@@ -1,8 +1,6 @@
 import Tkinter as tk
 from Tkinter import *
 import ttk
-#import search_palabra as sw
-#import search_person as sp
 import cliente as cli
 
 b = "Busqueda por "
@@ -60,7 +58,7 @@ class toSearch(ttk.Frame):
         if typeTime == "Indefinido":
             totalTime = -1
             
-        asd = cli.search(String, totalTime, "Keyword", fileName)
+        asd = cli.search(String, totalTime, fileName)
         self.searchRefresh()
         self.controller.deleteList.updateWindow()
         return
