@@ -10,7 +10,7 @@ def search(busqueda, currTime, Type, nombreArchivo):
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
     directory = os.path.dirname(os.path.abspath(__file__))
-    client.connect('104.197.72.131', username='lunapuljak', password='', key_filename=directory + '/llave')
+    client.connect('35.184.125.210', username='lunapuljak', password='', key_filename=directory + '/llave')
 
     tipo = Type
 
@@ -20,10 +20,10 @@ def search(busqueda, currTime, Type, nombreArchivo):
         tiempo = currTime
         if tipo == 'Keyword':
             stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py "' + str(tiempo) + '" "' 
-                + str(nombreArchivo) + '" "' + str(busqueda) + '" ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file.txt &')
+                + nombreArchivo.encode('utf-8') + '" "' + busqueda.encode('utf-8') + '" ' + '>/dev/null 2>&1 & echo $! ' + nombreArchivo.encode('utf-8') + ' >> file.txt &')
         else:
             stdin, stdout, stderr = client.exec_command('echo | nohup python querySearch.py "' + str(tiempo) + '" "'
-             + str(nombreArchivo) + '" ' + str(busqueda) + ' ' + '>/dev/null 2>&1 & echo $! ' + str(nombreArchivo) + ' >> file.txt &')
+             + nombreArchivo.encode('utf-8') + '" ' + busqueda.encode('utf-8') + ' ' + '>/dev/null 2>&1 & echo $! ' + nombreArchivo.encode('utf-8') + ' >> file.txt &')
     else:
         print('Opcion no valida')
     client.close()
@@ -36,7 +36,7 @@ def delete(pid):
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
     directory = os.path.dirname(os.path.abspath(__file__))
-    client.connect('104.197.72.131', username='lunapuljak', password='', key_filename=directory + '/llave')
+    client.connect('35.184.125.210', username='lunapuljak', password='', key_filename=directory + '/llave')
 
     stdin, stdout, stderr = client.exec_command('python eliminar.py ' + str(pid))
     print('Proceso ' + str(pid) + ' terminado.')
@@ -48,7 +48,7 @@ def showDeleteOptions():
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
     directory = os.path.dirname(os.path.abspath(__file__))
-    client.connect('104.197.72.131', username='lunapuljak', password='', key_filename=directory + '/llave')
+    client.connect('35.184.125.210', username='lunapuljak', password='', key_filename=directory + '/llave')
 
     stdin, stdout, stderr = client.exec_command('cat file.txt')
 
