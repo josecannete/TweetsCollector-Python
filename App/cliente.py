@@ -3,7 +3,7 @@ import os
 import paramiko
 
 '''
-Class ServerParameters: tiene como campos una ip (externa) del servidor, un usuario y una contraseña
+Class ServerParameters: tiene como campos una ip (externa) del servidor, un usuario y una contrasena
 '''
 class ServerParameters:
     def __init__(self):
