@@ -54,7 +54,7 @@ Luego, para detener uno o varios procesos solo tendremos que seleccionarlos y po
 
 ![alt tag](http://i.imgur.com/ItiLKpc.png)
 
-5 - Una vez que hayamos hecho una busqueda o eliminado un proceso, los campos de información se actualizaran y podremos seguir ejecutando acciones, o bien cerrar el programa.
+5 - Una vez que hayamos hecho una busqueda o eliminado un proceso, los campos de información se actualizarán y podremos seguir ejecutando acciones, o bien cerrar el programa.
 
 # Descargar archivos desde el servidor
 
@@ -68,7 +68,7 @@ En este caso usaremos Filezilla pues parece lo más amigable para este fin.
 
 3 - Abrimos Filezilla y vamos a Opciones -> SFTP -> Add keyfile, en este punto buscamos el archivo Llave en nuestro pc y damos aceptar.
 
-4 - Volviendo en Filezilla completamos la informacion que se pide en conección rápida y damos click en Conexion rapida, en nuestro caso seria asi:
+4 - Volviendo en Filezilla completamos la información que se pide en conección rápida y damos click en Conexión rápida, en nuestro caso sería así:
 
 ![alt tag](http://i.imgur.com/hqMe5Cu.png)
 
