@@ -10,7 +10,7 @@
 
 # Instrucciones para el setup del cliente
 
-1 - Instalar paramiko (http://www.paramiko.org/installing.html) y tkinter (en caso de no estar instalado, https://docs.python.org/2/library/tkinter.html)
+1 - Instalar paramiko (http://www.paramiko.org/installing.html) y tkinter (en caso de no estar instalado, http://www.paramiko.org/installing.html)
 
 2 - Descargar la carpeta App.
 
@@ -55,3 +55,24 @@ Luego, para detener uno o varios procesos solo tendremos que seleccionarlos y po
 ![alt tag](http://i.imgur.com/ItiLKpc.png)
 
 5 - Una vez que hayamos hecho una busqueda o eliminado un proceso, los campos de información se actualizaran y podremos seguir ejecutando acciones, o bien cerrar el programa.
+
+# Descargar archivos desde el servidor
+
+En esta parte tenemos un par de opciones, usar SCP mediante terminal y/o algún cliente para este fin o bien usar FTP y algún cliente para esto.
+
+En este caso usaremos Filezilla pues parece lo más amigable para este fin.
+
+1 - Descargar e instalar Filezilla (https://filezilla-project.org)
+
+2 - Descargar (en caso de no haberlo hecho anteriormente) el archivo Llave que se encuentra en la carpeta App del repositorio.
+
+3 - Abrimos Filezilla y vamos a Opciones -> SFTP -> Add keyfile, en este punto buscamos el archivo Llave en nuestro pc y damos aceptar.
+
+4 - Volviendo en Filezilla completamos la informacion que se pide en conección rápida y damos click en Conexion rapida, en nuestro caso seria asi:
+
+![alt tag](http://i.imgur.com/hqMe5Cu.png)
+
+5 - Finalmente nos desplazamos por las carpetas que nos interesen y arrastramos los archivos desde la parte del servidor a nuestro pc, estos inmediatamente empezaran a descargarse:
+
+![alt tag](http://i.imgur.com/Qy407wn.png)
+
